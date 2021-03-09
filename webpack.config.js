@@ -13,6 +13,13 @@ module.exports = {
       //quais arquivais vai ultilizar
       extensions: ['.js', '.jsx'],
   },
+
+  //para nao precisar ficar dando reload
+  devServer: {
+    contentBase: path.resolve(__dirname, 'public')
+  },
+
+  //para ter o html estatico
   plugins: [
     new HtmlWebPackPlugin({
       template: path.resolve(__dirname, 'public', 'index.html')
