@@ -1,6 +1,6 @@
 import React from 'react';
+import './styles/global.css';
 
 export function App() {
-    throw new Error('Eitaaaa, muluke')
     return <h1>Hello World  </h1>
 }
