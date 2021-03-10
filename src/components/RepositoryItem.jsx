@@ -1,4 +1,4 @@
-export default function RepositoryItem(props) {
+export  function RepositoryItem(props) {
     return(
       <li>
         <strong>{props.repository.name}</strong>

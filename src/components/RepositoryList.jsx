@@ -1,4 +1,4 @@
-import RepositoryItem from './RepositoryItem';
+import { RepositoryItem } from './RepositoryItem';
 
 const repository = {
   name: 'Batata doce',
