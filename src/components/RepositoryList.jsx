@@ -1,41 +1,22 @@
+import RepositoryItem from './RepositoryItem';
+
+const repository = {
+  name: 'Batata doce',
+  description: 'Repo de um batata',
+  link: 'https://github.com/rogeraf15'
+}
+
 export function RepositoryList(){
     return(
         <section className="repository-list">
             <h1>Lista de repositórios</h1>
 
             <ul>
-                <li>
-                  <strong>Nome do repo</strong>
-                  <p>Descrição do repo</p>
-
-                  <a href="">
-                    acessar repositório
-                  </a>
-                </li>
-                <li>
-                  <strong>Nome do repo</strong>
-                  <p>Descrição do repo</p>
-
-                  <a href="">
-                    acessar repositório
-                  </a>
-                </li>
-                <li>
-                  <strong>Nome do repo</strong>
-                  <p>Descrição do repo</p>
-
-                  <a href="">
-                    acessar repositório
-                  </a>
-                </li>
-                <li>
-                  <strong>Nome do repo</strong>
-                  <p>Descrição do repo</p>
-
-                  <a href="">
-                    acessar repositório
-                  </a>
-                </li>
+               <RepositoryItem repository={repository}/>
+               <RepositoryItem repository={repository}/>
+               <RepositoryItem repository={repository}/>
+               <RepositoryItem repository={repository}/>
+               <RepositoryItem repository={repository}/>
             </ul>
         </section>
     )
