@@ -1,5 +1,7 @@
 import { RepositoryItem } from './RepositoryItem';
 
+import '../styles/repositories.scss';
+
 const repository = {
   name: 'Batata doce',
   description: 'Repo de um batata',
