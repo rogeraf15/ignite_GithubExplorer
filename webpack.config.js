@@ -1,5 +1,6 @@
 const path = require('path')
 const HtmlWebPackPlugin = require('html-webpack-plugin')
+const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 
 const isDevelopment = process.env.NODE_ENV !== 'production';
 
@@ -20,22 +21,34 @@ module.exports = {
 
   //para nao precisar ficar dando reload
   devServer: {
-    contentBase: path.resolve(__dirname, 'public')
+    contentBase: path.resolve(__dirname, 'public'),
+    hot: true
   },
 
-  //para ter o html estatico
   plugins: [
+    //Para ter o Refresh sem alterar os valores
+    isDevelopment && new ReactRefreshWebpackPlugin(),
+    //para ter o html estatico
     new HtmlWebPackPlugin({
       template: path.resolve(__dirname, 'public', 'index.html')
-    })
-  ],
+    }),
+    //esse filter é para tirar os booleans, no caso se der false no isDevelopment
+  ].filter(Boolean),
   module: {
       rules: [
         {
           test: /\.jsx$/,
           exclude: /node_modules/,
           //integração do babel com webpack
-          use: 'babel-loader'
+          use: {
+            loader : 'babel-loader',
+            options: {
+              //Para ter o Refresh sem alterar os valores
+              plugins : [
+                isDevelopment && require.resolve('react-refresh/babel')
+              ].filter(Boolean)
+            }
+          }  
         },
         {
           test: /\.scss$/,
